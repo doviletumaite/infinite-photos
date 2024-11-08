@@ -6,7 +6,7 @@ import { PicturesService } from 'src/app/services/pictures.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class MockPicturesService {
-  private favoriteIds: string[] = ['1', '2']
+  private favoriteIds = ['1', '2']
   private favoriteSubject = new BehaviorSubject<string[]>(this.favoriteIds)
 
   getFavoritesIds() {
@@ -24,7 +24,7 @@ class MockPicturesService {
 }
 
 class MockRouter {
-  url: string = '';
+  url = '';
   navigate(path: string[]) {
     return path;
   }

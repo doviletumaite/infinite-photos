@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit{
 
   public pictures$ = this.picturesSubject.asObservable()
 
-  page: number = 1
+  page= 1
 
-  limit: number = 20
+  limit = 20
 
-  loading: boolean = false
+  loading = false
 
   constructor(
     public picturesService: PicturesService

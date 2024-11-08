@@ -1,8 +1,12 @@
 <mat-card appearance="outlined">
   <mat-card-content>
     <h5>{{pic?.author}}</h5>
-    <div class="card-image-container" appHoverState  (hoverState)="onHoverStateChange($event)">
+    <div
+    class="card-image-container"
+    appHoverState
+    (hoverState)="onHoverStateChange($event)">
       <img
+        tabindex="0"
         (click)="toggleFavorite()"
         [src]="pic?.download_url"
         alt="image"
@@ -15,6 +19,7 @@
         [class.filled]="isFavorite"
         class="heart-icon"
         (click)="toggleFavorite()"
+        (keydown.enter)="toggleFavorite()"
       >
         favorite
       </mat-icon>

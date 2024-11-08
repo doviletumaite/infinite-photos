@@ -12,9 +12,9 @@ export class PicCardComponent implements OnInit{
 
   @Input() pic?: Picture
 
-  public isFavorite: boolean = false
+  public isFavorite = false
 
-  isHovered: boolean = false
+  isHovered = false
 
   constructor(
     private favoritesService: PicturesService,

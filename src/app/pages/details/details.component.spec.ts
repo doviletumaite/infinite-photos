@@ -23,29 +23,26 @@ class MockPicturesService {
   }
 }
 
-class MockRouter {
-  navigate(path: string[]) {}
-}
+
 
 
 describe('DetailsComponent', () => {
   let component: DetailsComponent;
   let fixture: ComponentFixture<DetailsComponent>;
   let picturesService: MockPicturesService;
-  let router: MockRouter;
+
   let activatedRoute: MockActivatedRoute;
 
   beforeEach(() => {
     activatedRoute = new MockActivatedRoute()
     picturesService = new MockPicturesService()
-    router = new MockRouter()
+
 
     TestBed.configureTestingModule({
       declarations: [DetailsComponent],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRoute },
         { provide: PicturesService, useValue: picturesService },
-        { provide: MockRouter, useValue: router },
       ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })

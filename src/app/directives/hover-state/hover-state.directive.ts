@@ -8,8 +8,6 @@ export class HoverStateDirective {
 
   @Output() hoverState = new EventEmitter<boolean>();
 
-  constructor() { }
-
   @HostListener('mouseenter')
    onMouseEnter() {
     this.hoverState.emit(true)
