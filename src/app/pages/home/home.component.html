@@ -3,7 +3,7 @@ class="cards-container"
 appScrollToBottom
 (reachedBottom)="loadMorePictures()">
   <app-pic-card
-  *ngFor="let pic of (pictures$ | async) as pictures"
+  *ngFor="let pic of (pictures$ | async) as pictures; trackBy: trackById"
   [pic]="pic"
   ></app-pic-card>
 </div>

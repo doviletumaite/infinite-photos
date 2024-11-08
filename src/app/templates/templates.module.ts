@@ -10,7 +10,6 @@ import { ComponentsModule } from "../components/components.module";
     TemplateComponent
   ],
   imports: [
-    CommonModule,
     ComponentsModule
 ],
   exports: [

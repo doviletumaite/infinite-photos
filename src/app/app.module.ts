@@ -35,8 +35,7 @@ import { HoverStateDirective } from './directives/hover-state/hover-state.direct
     MatProgressSpinnerModule,
     MatButtonModule,
     MatIconModule,
-    HoverStateDirective,
-    ScrollToBottomDirective
+    HoverStateDirective
   ],
   providers: [],
   bootstrap: [AppComponent],

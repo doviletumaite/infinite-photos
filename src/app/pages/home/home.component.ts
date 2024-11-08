@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit{
 
     this.picturesService.getPictures(this.page, this.limit)
     .pipe(
+      debounceTime(300),
       tap(() => this.page++),
       switchMap(newPictures => {
 
@@ -70,6 +71,10 @@ export class HomeComponent implements OnInit{
         this.loading = false
       }
     });
+  }
+
+  trackById(index: number, item: Picture): string {
+    return item.id
   }
 
 }

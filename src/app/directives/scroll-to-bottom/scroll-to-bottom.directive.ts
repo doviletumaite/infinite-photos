@@ -1,4 +1,5 @@
 import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
+import { Subject, throttleTime } from 'rxjs';
 
 @Directive({
   selector: '[appScrollToBottom]',
@@ -6,9 +7,15 @@ import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angu
 })
 export class ScrollToBottomDirective {
 
-  @Output() reachedBottom = new EventEmitter<boolean>();
+  @Output() reachedBottom = new EventEmitter<boolean>()
 
-  constructor(private el: ElementRef) { }
+  private scrollSubject = new Subject<void>()
+
+  constructor(private el: ElementRef) {
+    this.scrollSubject.pipe(
+      throttleTime(300)
+    ).subscribe(() => this.reachedBottom.emit());
+  }
 
   @HostListener('scroll', ['$event']) onScroll() {
     const target = this.el.nativeElement as HTMLElement
@@ -16,7 +23,7 @@ export class ScrollToBottomDirective {
     const maxScroll = target.scrollHeight
 
     if (scrollPosition >= maxScroll - 1) {
-      this.reachedBottom.emit()
+      this.scrollSubject.next();
     }
   }
 
