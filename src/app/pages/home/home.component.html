@@ -1,0 +1,14 @@
+<div
+class="cards-container"
+appScrollToBottom
+(reachedBottom)="loadMorePictures()">
+  <app-pic-card
+  *ngFor="let pic of (pictures$ | async) as pictures"
+  [pic]="pic"
+  ></app-pic-card>
+</div>
+
+
+<div *ngIf="loading" class="spinner-box">
+  <mat-spinner></mat-spinner>
+</div>

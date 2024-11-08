@@ -1,0 +1,10 @@
+<div
+*ngIf="(pictures$ | async ) as pictures"
+class="cards-container">
+  <app-pic-card
+  *ngFor="let pic of pictures"
+  [pic]="pic"
+  ></app-pic-card>
+
+  <div *ngIf="pictures.length === 0">No Favourite Items yet</div>
+</div>

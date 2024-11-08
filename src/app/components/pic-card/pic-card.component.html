@@ -1,0 +1,23 @@
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <h5>{{pic?.author}}</h5>
+    <div class="card-image-container" appHoverState  (hoverState)="onHoverStateChange($event)">
+      <img
+        (click)="toggleFavorite()"
+        [src]="pic?.download_url"
+        alt="image"
+        loading="lazy"
+        class="card-image"
+      >
+
+      <mat-icon
+        *ngIf="isHovered"
+        [class.filled]="isFavorite"
+        class="heart-icon"
+        (click)="toggleFavorite()"
+      >
+        favorite
+      </mat-icon>
+    </div>
+  </mat-card-content>
+</mat-card>

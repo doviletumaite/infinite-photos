@@ -1,0 +1,19 @@
+<div
+*ngIf="(picture$ | async) as picture"
+class="container"
+>
+  <h5>{{picture?.author}}</h5>
+  <img
+  [src]="picture?.download_url"
+  alt="image"
+  loading="lazy"
+  class="card-image">
+
+  <button
+   mat-raised-button
+  (click)="this.pictureService.removeFromFavorites(picture.id); onGoToFavourites()">
+    <mat-icon>close</mat-icon>
+    Remove from Favourites
+  </button>
+
+</div>

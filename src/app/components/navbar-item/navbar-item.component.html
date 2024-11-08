@@ -1,0 +1,13 @@
+
+<a
+ #anchorElement="routerLinkActive"
+ *ngIf="item.path"
+ routerLinkActive="active-link"
+ [routerLinkActiveOptions]="{ exact: true }"
+ [routerLink]="item.path"
+>
+  <button mat-fab extended>
+    <mat-icon>{{item.symbol}}</mat-icon>
+    {{item.name}}
+  </button>
+</a>

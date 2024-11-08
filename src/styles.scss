@@ -1,1 +1,77 @@
 /* You can add global styles to this file, and also import other style files */
+
+$bg-color: rgb(238, 237, 238);
+$main: #3498db;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: calc(100vh);
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: $bg-color;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background-color: white!important;
+  color: black!important;;
+}
+
+.active-link button {
+  background-color: $main!important;
+  color: white!important;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  height: 80vh;
+  overflow: auto;
+  padding: 0 0 5rem 0;
+}
+
+.spinner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  column-span: 4;
+}
+
+mat-spinner {
+  width: 45px !important;
+  height: 45px !important;
+  margin: 1rem 0 0 0 ;
+}
+
+mat-card {
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+  background-color: white!important;
+  height: 18rem!important;
+  width: 18rem!important;
+  overflow: hidden!important;
+}
+
+app-pic-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
