@@ -13,8 +13,10 @@ class MockActivatedRoute {
 
 class MockPicturesService {
   getFavouritePicture(id: string) {
-    const mockPicture: Picture =       {
-      id: '1', author: 'Author1', download_url: 'url1',
+    const mockPicture: Picture = {
+      id: '1',
+      author: 'Author1',
+      download_url: 'url1',
       width: 0,
       height: 0,
       url: ''

@@ -6,13 +6,12 @@ import { PicturesService } from 'src/app/services/pictures.service';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class MockPicturesService {
-  private favoriteIds = ['1', '2']
+  private favoriteIds: string[] = []
   private favoriteSubject = new BehaviorSubject<string[]>(this.favoriteIds)
 
   getFavoritesIds() {
-    return this.favoriteIds
+    return this.favoriteSubject.asObservable()
   }
-
   addToFavorites(id: string) {
     if (!this.favoriteIds.includes(id)) {
       this.favoriteIds.push(id)
@@ -51,10 +50,34 @@ describe('PicCardComponent', () => {
 
     fixture = TestBed.createComponent(PicCardComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.pic ={
+      id: '1',
+      author: 'Author1',
+      download_url: 'url1',
+      width: 0,
+      height: 0,
+      url: ''
+    }
+    fixture.detectChanges()
+    component.ngOnInit()
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should add to favorites when clicking on it', () => {
+    spyOn(picturesService, 'addToFavorites').and.callThrough();
+
+    expect(component.isFavorite).toBeFalse();
+
+    component.toggleFavorite();
+
+    expect(picturesService.addToFavorites).toHaveBeenCalledWith('1');
+
+    component.getFavourite();
+    fixture.detectChanges();
+
+    expect(component.isFavorite).toBeTrue();
   });
 });

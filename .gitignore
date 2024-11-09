@@ -64,12 +64,13 @@ nbproject/private/
 # Ignore all local history of files
 .history
 .ionide
-node_modules
+
 .npm-debug.log
 tmp
 
 .angular
 .vscode
+package-lock.json
 
 
 

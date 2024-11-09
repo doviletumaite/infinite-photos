@@ -1,9 +1,11 @@
-import { ComponentFixture, fakeAsync, flush, resetFakeAsyncZone, TestBed, tick } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, flush, TestBed, tick } from '@angular/core/testing';
 
 import { FavouritesComponent } from './favourites.component';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Picture } from 'src/app/interfaces/picture';
+import { PicturesService } from 'src/app/services/pictures.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 class MockPicturesService {
   private favoriteIds: string[] = ['1', '2']
@@ -53,10 +55,11 @@ describe('FavouritesComponent', () => {
       imports: [HttpClientTestingModule],
       providers: [
         {
-          provide: MockPicturesService,
+          provide: PicturesService,
           useValue: picturesService
         },
-      ]
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     }).compileComponents()
 
     fixture = TestBed.createComponent(FavouritesComponent)
@@ -68,4 +71,15 @@ describe('FavouritesComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should display favourite pictures if they exist', fakeAsync(() => {
+   component.ngOnInit();
+
+   tick();
+   fixture.detectChanges();
+
+   const pictureElements = fixture.nativeElement.querySelectorAll('app-pic-card');
+   expect(pictureElements.length).toBe(2);
+
+   flush();
+  }));
 });

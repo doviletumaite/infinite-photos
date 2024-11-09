@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, forkJoin, mergeMap, Observable, of, tap } from 'rxjs';
 import { Picture } from 'src/app/interfaces/picture';
 import { PicturesService } from 'src/app/services/pictures.service';
@@ -8,7 +8,7 @@ import { PicturesService } from 'src/app/services/pictures.service';
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss']
 })
-export class FavouritesComponent {
+export class FavouritesComponent implements OnInit{
 
   public pictures$ =  new BehaviorSubject<Picture[]>([]);
 
