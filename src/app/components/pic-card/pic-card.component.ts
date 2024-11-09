@@ -1,7 +1,7 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Picture } from 'src/app/interfaces/picture';
 import { PicturesService } from 'src/app/services/pictures.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pic-card',

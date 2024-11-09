@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, of } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { Picture } from '../interfaces/picture';
 
 @Injectable({

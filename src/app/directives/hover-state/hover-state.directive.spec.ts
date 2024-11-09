@@ -1,7 +1,6 @@
 import { HoverStateDirective } from './hover-state.directive';
 import { ElementRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 
 describe('HoverStateDirective', () => {
   let directive: HoverStateDirective

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, concatMap, debounce, debounceTime, delay, from, interval, Observable, of, switchMap, tap, shareReplay } from 'rxjs';
+import { BehaviorSubject, concatMap, debounceTime, delay, from, of, switchMap, tap } from 'rxjs';
 import { Picture } from 'src/app/interfaces/picture';
 import { PicturesService } from 'src/app/services/pictures.service';
 
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit{
 
   public pictures$ = this.picturesSubject.asObservable()
 
-  page= 1
+  page = 1
 
   limit = 20
 

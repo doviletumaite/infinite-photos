@@ -12,7 +12,7 @@ class MockActivatedRoute {
 }
 
 class MockPicturesService {
-  getFavouritePicture(id: string) {
+  getFavouritePicture() {
     const mockPicture: Picture = {
       id: '1',
       author: 'Author1',
@@ -24,8 +24,6 @@ class MockPicturesService {
     return of(mockPicture)
   }
 }
-
-
 
 
 describe('DetailsComponent', () => {
