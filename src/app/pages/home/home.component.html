@@ -5,6 +5,7 @@ appScrollToBottom
   <app-pic-card
   *ngFor="let pic of (pictures$ | async) as pictures; trackBy: trackById"
   [pic]="pic"
+  [isFavorite]="(getFavourite(pic)  | async)!"
   ></app-pic-card>
 </div>
 

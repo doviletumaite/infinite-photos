@@ -4,6 +4,7 @@ class="cards-container">
   <app-pic-card
   *ngFor="let pic of pictures"
   [pic]="pic"
+  [isFavorite]="(getFavourite(pic)  | async)!"
   ></app-pic-card>
 
   <div *ngIf="pictures.length === 0">No Favourite Items yet</div>

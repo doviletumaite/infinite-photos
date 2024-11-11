@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, concatMap, debounceTime, delay, from, of, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, concatMap, debounceTime, delay, from, map, Observable, of, switchMap, tap } from 'rxjs';
 import { Picture } from 'src/app/interfaces/picture';
 import { PicturesService } from 'src/app/services/pictures.service';
 
@@ -26,6 +26,13 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     this.loadPictures()
+  }
+
+  getFavourite(picture: Picture): Observable<boolean>  {
+    return this.picturesService.getFavoritesIds()
+    .pipe(
+      map((favoriteIds: string[]) => favoriteIds.includes(picture!.id))
+    );
   }
 
   loadPictures() {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, forkJoin, mergeMap, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, forkJoin, map, mergeMap, Observable, of, tap } from 'rxjs';
 import { Picture } from 'src/app/interfaces/picture';
 import { PicturesService } from 'src/app/services/pictures.service';
 
@@ -28,6 +28,13 @@ export class FavouritesComponent implements OnInit{
     ).subscribe(pictures => {
       this.pictures$.next(pictures)
     });
+  }
+
+  getFavourite(picture: Picture): Observable<boolean>  {
+    return this.picturesService.getFavoritesIds()
+    .pipe(
+      map((favoriteIds: string[]) => favoriteIds.includes(picture!.id))
+    );
   }
 
 }

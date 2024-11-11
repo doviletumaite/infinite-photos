@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './pic-card.component.html',
   styleUrls: ['./pic-card.component.scss']
 })
-export class PicCardComponent implements OnInit{
+export class PicCardComponent {
 
   @Input() pic?: Picture
 
-  public isFavorite = false
+  @Input() isFavorite = false
 
   isHovered = false
 
@@ -20,10 +20,6 @@ export class PicCardComponent implements OnInit{
     private favoritesService: PicturesService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {
-    this.getFavourite()
-  }
 
   getFavourite(){
     if(this.pic){
